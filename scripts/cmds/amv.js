@@ -5,7 +5,7 @@ const path = require("path");
 
 const channelLinks = [ 
 
-  "https://www.youtube.com/@AnimeMVSensei",
+  "https://t.me/SMMPANEL8",
 
 ];
 
