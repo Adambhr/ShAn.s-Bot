@@ -5,7 +5,7 @@ module.exports = {
 	config: {
 		name: "affect",
 		version: "1.1",
-		author: "𝗦𝗵𝗔𝗻",
+		author: "KABOS",
 		countDown: 5,
 		role: 0,
 		shortDescription: "Affect image",
