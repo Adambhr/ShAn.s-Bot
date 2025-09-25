@@ -1,4 +1,4 @@
-m'"fs-extra");
+mn "fs-extra");
 const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
