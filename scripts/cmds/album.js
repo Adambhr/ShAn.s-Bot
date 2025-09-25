@@ -7,7 +7,7 @@ module.exports = {
   name: "album",
   version: "1.0.0",
   role: 0,
-  author: "𝗦𝗵𝗔𝗻",//Don't Change Author name.
+  author: "KABOS ",//Don't Change Author name.
   longDescription: "Displays album options for selection.",
   category: "𝗠𝗘𝗗𝗜𝗔",
   countDown: 5,
@@ -35,7 +35,7 @@ onStart: async function ({ api, Reply, event, message, args}) {
     "𝗥𝗮𝗻𝗱𝗼𝗺 𝗣𝗵𝗼𝘁𝗼"
   ];
 
-  const message = "❤‍🩹 𝗖𝗵𝗼𝗼𝘀𝗲 𝗮𝗻 𝗼𝗽𝘁𝗶𝗼𝗻𝘀 𝗕𝗮𝗯𝘆 <💝\n"+"✿━━━━━━━━━━━━━━━━━━━━━━━✿\n"+ albumOptions.map((option, index) => `${index + 1}. ${option} 📛`).join("\n")+"\n✿━━━━━━━━━━━━━━━━━━━━━━━✿";
+  const message = "❤‍🩹 𝗖𝗵𝗼𝗼𝘀𝗲 𝗮𝗻 𝗼𝗽𝘁𝗶𝗼𝗻𝘀  <💝\n"+"✿━━━━━━━━━━━━━━━━━━━━━━━✿\n"+ albumOptions.map((option, index) => `${index + 1}. ${option} 📛`).join("\n")+"\n✿━━━━━━━━━━━━━━━━━━━━━━━✿";
 
   await api.sendMessage(message, event.threadID,(error, info) => {
   global.GoatBot.onReply.set(info.messageID, {
@@ -156,7 +156,7 @@ onReply: async function ({ api, event, Reply }) {
     }
     else if (reply === 7) {
     query = "horny";
-    cp = "𝗡𝗮𝘄 𝗕𝗮𝗯𝘆 𝗛𝗼𝗿𝗻𝘆 𝘃𝗶𝗱𝗲𝗼 <🥵";
+    cp =  <";
     }
     else if (reply === 8) {
     query = "love";
