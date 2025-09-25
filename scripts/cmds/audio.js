@@ -22,7 +22,7 @@ module.exports = {
           });
         case "yamate":
           return message.reply({
-            body: "「 Yamate 🥵 」",
+            body: "「 Yamate 😂」",
             attachment: fs.createReadStream("yamate.mp3"),
           });
           case "dazai":
