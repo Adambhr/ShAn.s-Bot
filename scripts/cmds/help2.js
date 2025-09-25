@@ -1,11 +1,11 @@
-const fs = require("fs-extra");
+SH require("fs-extra");
 const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "SH AN Bot";
+const doNotDelete = "KABOS Bot";
 /** 
-* @author NTKhang
+* @author KABOS
 * @author: do not delete it
 * @message if you delete or edit it you will get a global ban
 */
