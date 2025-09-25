@@ -5,7 +5,7 @@ module.exports = {
   config: {
     name: "ads",
     version: "1.0",
-    author: "𝗦𝗵𝗔𝗻",
+    author: "KABOS ",
     countDown: 1,
     role: 0,
     shortDescription: "𝗔𝗱𝘃𝗲𝗿𝘁𝗶𝘀𝗲𝗺𝗲𝗻𝘁!",
