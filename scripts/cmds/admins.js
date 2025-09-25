@@ -4,7 +4,7 @@ module.exports = {
     config: {
         name: "admin",
         version: "1.1",
-        author: "ShAn",
+        author: "KABOS",
         countDown: 5,
         role: 0,
         category: "𝗢𝗪𝗡𝗘𝗥 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗧𝗜𝗢𝗡",
@@ -17,13 +17,13 @@ module.exports = {
         en: {
             listAdmin: "🎭 ADMIN LIST 🎭"
                 + "\n ♦___________________♦"
-                + "\n ❃ OWNER:♣ Ew'r ShAn's ♣"
+                + "\n ❃ Dev:♣ KABOS ♣"
                 + "\n _____________________________"
-                + "\n _____♪ ADMIN ♪_____"
+                + "\n _____♪ 🛡ADMIN🛡 ♪_____"
                 + "\n %1"
                 + "\n _____________________________"
-                + "\n ❃ ♦OWNER♦:https://www.facebook.com/sirana252"
-                + "\n |__S_H_A_N__B_O_T__|",
+                + "\n ❃ ♦OWNER♦:https://www.facebook.com/KBSXX.43"
+                + "\n |__K A B O S__|",
             noAdmins: "⚠️ | No admins found in the bot!"
         }
     },
