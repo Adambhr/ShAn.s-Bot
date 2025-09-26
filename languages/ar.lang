@@ -1,0 +1,155 @@
+# index.js
+Goat.newVersionDetected=أنت تستخدم الإصدار %1، أحدث إصدار هو %2. الرجاء التحديث لتحسين استخدام البوت عبر كتابة الأمر التالي في الـ console/cmd: %3
+Goat.autoRestart1=سيقوم البوت بإعادة التشغيل تلقائيًا خلال %1
+Goat.autoRestart2=سيتم إعادة تشغيل البوت تلقائيًا بواسطة وظيفة مجدولة: %1
+Goat.googleApiTokenExpired=انتهت صلاحية رمز تحديث Google API أو تم إلغاؤه، الرجاء الحصول على رمز جديد من https://developers.google.com/oauthplayground/
+
+# bot/login/login.js
+login.currentlyLogged=جارٍ تسجيل الدخول
+login.notFoundDirAccount=لا يمكن العثور على الملف %1
+login.loginToken=تسجيل الدخول باستخدام رمز الوصول
+login.loginCookieString=تسجيل الدخول باستخدام سلسلة الكوكيز
+login.loginCookieNetscape=تسجيل الدخول باستخدام كوكيز netscape
+login.loginCookieArray=تسجيل الدخول باستخدام مصفوفة الكوكيز
+login.loginPassword=تسجيل الدخول بالبريد الإلكتروني وكلمة المرور...
+login.accountError=الرجاء إدخال رمز الصلاحيات الكامل بالشكل %1 أو الكوكيز كسلسلة %2 أو الكوكيز كمصفوفة:\n[\n  { name: %3, value: %4 },\n  { name: %5, value: ... }\n]
+login.cannotFindAccount=تعذر العثور على حساب فيسبوك، اختر أحد الخيارات التالية (أدخل الرقم للاختيار أو استخدم الأسهم ثم اضغط Enter):
+login.chooseAccount=تسجيل الدخول بالبريد الإلكتروني وكلمة المرور
+login.chooseToken=تسجيل الدخول باستخدام رمز كامل الصلاحيات
+login.chooseCookieString=تسجيل الدخول باستخدام سلسلة الكوكيز
+login.chooseCookieArray=تسجيل الدخول باستخدام مصفوفة الكوكيز
+login.loginWith=لقد اخترت %1
+login.inputEmail=> الرجاء إدخال بريدك الإلكتروني (id) أو رقم هاتف حساب فيسبوك:
+login.inputPassword=> الرجاء إدخال كلمة المرور:
+login.input2FA=> الرجاء إدخال رمز 2FA (اتركه فارغًا إن لم تكن مُفعلًا):
+login.inputToken=> الرجاء إدخال رمز الصلاحيات الكامل (يبدأ بـ EAAAA):
+login.inputCookieString=> الرجاء إدخال سلسلة الكوكيز:
+login.inputCookieArray=> الرجاء إدخال مصفوفة الكوكيز:
+login.refreshCookie=جارٍ تحديث الكوكيز...
+login.refreshCookieError=حدث خطأ عند تحديث الكوكيز
+login.refreshCookieSuccess=تم تحديث الكوكيز بنجاح، أعد تشغيل البوت لاستخدام الكوكيز الجديد
+login.refreshCookieWarning=لقد فعّلت وضع التحديث التلقائي للكوكيز، لكنك لم تكُن قد أعددت البريد أو كلمة المرور في ملف config.json
+login.tokenError=الرمز غير صالح أو منتهي الصلاحية. الرجاء إدخال رمز الصلاحيات الكامل بالشكل %1 في الملف %2
+login.cookieError=الكوكيز غير صالح أو منتهي الصلاحية.
+login.loginPasswordError=حدث خطأ عند تسجيل الدخول باستخدام البريد الإلكتروني وكلمة المرور في config.json
+login.loginSuccess=تم تسجيل الدخول بنجاح
+login.loginError=حدث خطأ أثناء تسجيل الدخول
+login.openDashboardSuccess=تم فتح صفحة إدارة البوت بنجاح
+login.openDashboardError=حدث خطأ عند فتح صفحة إدارة البوت
+login.changeGbanData=تم تغيير البيانات، لا يمكن تشغيل البوت حاليًا
+login.errorNoti=حدث خطأ عند جلب الرسالة
+login.refreshFbstateSuccess=تم تحديث الملف %1 بنجاح
+login.refreshFbstateError=حدث خطأ عند تحديث الملف %1
+login.youAreBanned=لقد تم حظرك من مشروع Goat-Bot
+login.runBot=تم تشغيل البوت بنجاح، بدأ استلام الرسائل من المستخدمين
+login.notLoggedIn=حدث خطأ، يرجى التحقق من حساب فيسبوك مرة أخرى
+login.callBackError=حدث خطأ عند الاستماع إلى callback listenMqtt
+login.userBanned=لقد تم حظرك من استخدام البوت!!
+login.checkGbanError=حدث خطأ عند التحقق من GBAN، حاول تحديث المصدر إلى أحدث نسخة (افتح cmd واكتب: node update)
+login.gbanMessage=لقد تم حظرك من مشروع Goat-Bot على %1 للسبب: %2\n» الوقت: %3
+login.gbanMessageToDate=لقد تم حظرك من مشروع Goat-Bot على %1 للسبب: %2\n» الوقت: %3\n» حتى: %4
+login.gbanAdminMessage=المستخدم %1 تم حظره من مشروع Goat-Bot على %2 للسبب: %3
+login.openServerUptimeSuccess=🚀 تم فتح خادم uptime: %1
+login.openServerUptimeError=حدث خطأ، لا يمكن فتح خادم uptime
+login.restartListenMessage=تم تفعيل إعادة تشغيل ListenMQTT كل %1
+login.stopRestartListenMessage=تم تعطيل إعادة تشغيل ListenMQTT
+login.restartListenMessageError=حدث خطأ عند إعادة تشغيل ListenMQTT
+login.restartListenMessage2=تم إعادة تشغيل ListenMQTT بنجاح
+login.refreshCookieAfter=جارٍ تحديث الكوكيز بعد %1
+login.listenMqttClose=تم إغلاق ListenMQTT
+login.listenMqttCloseByUser=تم إغلاق ListenMQTT بواسطة المستخدم
+login.retryCheckLiveCookie=جارٍ إعادة المحاولة لفحص الكوكيز... %1
+login.startBotSuccess=تم تشغيل البوت بنجاح، بدأ استلام الرسائل من المستخدمين
+
+version.tooOldVersion=أنت تستخدم إصدارًا قديمًا جدًا من Goat-Bot، يرجى التحديث إلى أحدث إصدار بكتابة الأمر: %1 في cmd/console/terminal/shell
+
+# bot/custom.js
+custom.refreshedFb_dtsg=تم تحديث fb_dtsg و jazoest بنجاح
+custom.refreshedFb_dtsgError=حدث خطأ عند تحديث fb_dtsg و jazoest
+
+# bot/login/loadData.js
+loadData.loadThreadDataSuccess=تم تحميل بيانات %1 مجموعة بنجاح!
+loadData.loadUserDataSuccess=تم تحميل بيانات %1 مستخدمًا بنجاح!
+loadData.refreshingThreadData=جارٍ تحديث معلومات المجموعات...
+loadData.refreshThreadDataSuccess=تم تحديث معلومات المجموعة %1 بنجاح!
+loadData.refreshThreadDataError=حدث خطأ عند تحديث معلومات المجموعات!
+
+# bot/login/loadScripts.js
+loadScripts.loadScriptsError=الملفات %1 بها أخطاء أثناء التحميل:
+loadScripts.loadScriptsNotMatchOrigin=الملفات %1 لا تطابق الملفات الأصلية في مشروع github، تأكد من أن هذه ملفات أوامر موثوقة:
+loadScripts.NOT_FOUND=غير موجود في الشيفرة المصدرية الأصلية:
+loadScripts.NOT_MATCH=لا تطابق الشيفرة المصدرية الأصلية:
+
+# bot/login/socketIO.js
+socketIO.connected=تم الاتصال بخادم socket.io
+socketIO.error=حدث خطأ عند الاتصال بخادم socket.io
+
+# bot/handler/handlerCheckData.js
+handlerCheckData.cantCreateThread=لا يمكن كتابة المجموعات ذات المعرف '%1' إلى قاعدة البيانات!
+handlerCheckData.cantCreateUser=لا يمكن كتابة المستخدمين ذوي المعرف '%1' إلى قاعدة البيانات!
+
+# bot/handler/handlerEvents.js
+handlerEvents.userBanned=لقد تم حظرك من استخدام البوت\n» السبب: %1\n» الوقت: %2\n» معرف المستخدم: %3
+handlerEvents.threadBanned=تم حظر هذه المجموعة من استخدام البوت\n» السبب: %1\n» الوقت: %2\n» معرف المجموعة: %3
+handlerEvents.onlyAdminBox=هذا الصندوق مضبوط بحيث يمكن فقط لمسؤولي المجموعة استخدام البوت
+handlerEvents.onlyAdminBot=❌ | حاليًا فقط مشرفي البوت يمكنهم استخدام البوت
+handlerEvents.commandNotFound=❗| الأمر \"%1\" غير موجود، اكتب %2help لرؤية جميع الأوامر المتاحة
+handlerEvents.commandNotFound2=❗| الأمر الذي تستخدمه غير موجود، اكتب %1help لرؤية جميع الأوامر المتاحة
+handlerEvents.commandSyntaxError=بناء الجملة للأمر الذي تستخدمه خاطئ، اكتب %1help %2 للاطلاع على كيفية استخدام هذا الأمر
+handlerEvents.onlyAdmin=❌ | فقط مسؤولو المجموعة يمكنهم استخدام الأمر \"%1\"
+handlerEvents.onlyAdminToUseOnReply=❌ | فقط مسؤولو المجموعة يمكنهم استخدام وظيفة الرد للأمر \"%1\"
+handlerEvents.onlyAdminToUseOnReaction=❌ | فقط مسؤولو المجموعة يمكنهم استخدام وظيفة التفاعل للأمر \"%1\"
+handlerEvents.onlyAdminBot2=❌ | فقط مشرفي البوت يمكنهم استخدام الأمر \"%1\"
+handlerEvents.onlyAdminBot2ToUseOnReply=❌ | فقط مشرفي البوت يمكنهم استخدام وظيفة الرد للأمر \"%1\"
+handlerEvents.onlyAdminBot2ToUseOnReaction=❌ | فقط مشرفي البوت يمكنهم استخدام وظيفة التفاعل للأمر \"%1\"
+handlerEvents.waitingForCommand=⏱ أنت في فترة انتظار لاستخدام هذا الأمر، الرجاء العودة بعد %1s
+handlerEvents.errorOccurred=❌ [ %1 ]\nحدث خطأ في الأمر \"%2\"\n\n%3
+handlerEvents.errorOccurred2=❌ [ %1 ]\nحدث خطأ في onChat في الأمر \"%2\"\n\n%3
+handlerEvents.errorOccurred3=❌ [ %1 ]\nحدث خطأ عند تنفيذ onReply في الأمر \"%2\"\n\n%3
+handlerEvents.errorOccurred4=❌ [ %1 ]\nحدث خطأ عند تنفيذ onReaction في الأمر \"%2\"\n\n%3
+handlerEvents.errorOccurred5=❌ [ %1 ]\nحدث خطأ عند تنفيذ onEvent في الأمر \"%2\"\n\n%3
+handlerEvents.errorOccurred6=❌ [ %1 ]\nحدث خطأ عند تنفيذ onEvent في الأمر \"%2\"\n\n%3
+handlerEvents.errorOccurred7=❌ [ %1 ]\nحدث خطأ عند تنفيذ onAnyEvent في الأمر \"%2\"\n\n%3
+handlerEvents.cannotFindCommandName=❌ لا يمكن العثور على اسم الأمر لتنفيذ هذا الرد!
+handlerEvents.cannotFindCommand=❌ لا يمكن العثور على الأمر \"%1\" لتنفيذ هذا الرد!
+
+# bot/autoUptime.js
+autoUptime.autoUptimeTurnedOn=تم تفعيل وضع AutoUptime
+
+# database/controller/index.js
+indexController.connectingMongoDB=جارٍ الاتصال بقاعدة بيانات MONGODB
+indexController.connectMongoDBSuccess=تم الاتصال بقاعدة بيانات mongodb بنجاح!
+indexController.connectMongoDBError=حدث خطأ عند الاتصال بقاعدة بيانات Mongodb:
+indexController.connectingMySQL=جارٍ الاتصال بقاعدة بيانات SQLITE
+indexController.connectMySQLSuccess=تم الاتصال بقاعدة بيانات SQLITE بنجاح!
+indexController.connectMySQLError=حدث خطأ عند الاتصال بقاعدة بيانات SQLITE:
+
+# updater.js
+updater.updateTooFast=الرجاء الانتظار 5 دقائق على الأقل بعد أحدث عملية تحديث لتجنب الأخطاء، بقي %1 دقائق %2 ثوانٍ
+updater.latestVersion=أنت تستخدم أحدث إصدار
+updater.cantFindVersion=أنت تستخدم إصدارًا غير معرف (%1)، يرجى التحقق من ملف package.json مرة أخرى
+updater.newVersions=هناك %1 إصدارات جديدة للتحديث، جاري البدء بالتحديث...
+updater.updateSuccess=تم التحديث بنجاح%1
+updater.configChanged=تم تغيير %1، يرجى التحقق من ملف config.json مرة أخرى
+updater.installingPackages=جارٍ تثبيت تبعيات البوت...
+updater.installSuccess=تم تثبيت التبعيات بنجاح، أعد تشغيل البوت لاستخدام النسخة الجديدة
+updater.backupSuccess=تم نسخ الملفات المعدلة احتياطيًا بنجاح، انظر المجلد %1
+updater.restartToApply=. أعد تشغيل البوت لتطبيق النسخة الجديدة
+updater.skipFile=هناك نسخة جديدة من الملف %1، لكنك تخطيت هذا الملف أثناء عملية التحديث بتعليق %2 في هذا الملف
+
+# dashboard/routes/verifyfbid.js
+verifyfbid.sendCode=رمز التحقق الخاص بك هو:\n%1\nرمز التحقق صالح لمدة %2 دقائق
+
+# utils.js
+utils.errorOccurred=❌ حدث خطأ:\n\n%1
+
+# for command
+command.restartedBot=تم إعادة تشغيل البوت
+
+# dashboard/app.js
+app.googleApiRefreshTokenExpired=انتهت صلاحية رمز تحديث Google API أو تم إلغاؤه، الرجاء الحصول على رمز جديد من https://developers.google.com/oauthplayground/
+app.tooManyRequests=عدد طلبات كبير في الدقيقة الماضية. الرجاء المحاولة لاحقًا.
+app.notPermissionChangeFbstate=ليس لديك صلاحية لتغيير fbstate!
+app.notFoundFbstate=الرجاء إدخال fbstate!
+app.changedFbstateSuccess=تم تغيير fbstate بنجاح!
+app.serverError=خادم فيه خطأ، الرجاء المحاولة لاحقًا!
