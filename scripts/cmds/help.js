@@ -6,20 +6,20 @@ const { commands, aliases } = global.GoatBot;
 
 module.exports = {
   config: {
-    name: "help",
+    name: "Kabos",
     version: "1.18",
     author: "ShAn",
     countDown: 5,
     role: 0,
     shortDescription: {
-      en: "عرض طريقة استخدام الأوامر", // نص الواجهة (مُستبدل بالعربية)
+      en: "عرض طريقة استخدام الأوامر",
     },
     longDescription: {
-      en: "عرض طريقة استخدام الأوامر وقائمة جميع الأوامر أو الأوامر حسب الفئة", // نص الواجهة (مُستبدل بالعربية)
+      en: "عرض طريقة استخدام الأوامر وقائمة جميع الأوامر أو الأوامر حسب الفئة",
     },
     category: "info",
     guide: {
-      en: "{pn}help [اسم_الأمر]\n{pn}help -c <اسم_الفئة>",
+      en: "{pn}Kabos [اسم_الأمر]\n{pn}help -c <اسم_الفئة>",
     },
     priority: 1,
   },
@@ -39,7 +39,6 @@ module.exports = {
       msg += "╚══════════════╝\n";
 
       for (const [name, value] of commands) {
-        // احترم متطلبات الصلاحية
         if (value?.config?.role > 1 && role < value.config.role) continue;
 
         const category = (value?.config?.category || "غير مصنفة");
@@ -59,10 +58,10 @@ module.exports = {
       });
 
       const totalCommands = (typeof commands.size === "number") ? commands.size : Array.from(commands).length;
-      msg += `\nحالياً يحتوي البوت على ${totalCommands} أمرًا متاحًا.\n`;
-      msg += `اكتب ${prefix}help <اسم_الأمر> لعرض التفاصيل عن أمر محدد.\n`;
-      msg += `اكتب ${prefix}help -c <اسم_الفئة> لعرض الأوامر حسب الفئة.\n`;
-      msg += `\nاسم البوت: ♡KABOS BOT♡\n`;
+      msg += `\n🔹 حالياً يحتوي البوت على ${totalCommands} أمرًا متاحًا.\n`;
+      msg += `✦ اكتب: ${prefix}help <اسم_الأمر> لعرض تفاصيل أمر محدد.\n`;
+      msg += `✦ اكتب: ${prefix}help -c <اسم_الفئة> لعرض الأوامر حسب الفئة.\n`;
+      msg += `\n🤖 اسم البوت: ♡KABOS BOT♡\n`;
 
       await message.reply({ body: msg }).catch(() => {});
       return;
@@ -71,7 +70,7 @@ module.exports = {
     // عرض حسب الفئة: help -c <category>
     if (args[0] === "-c") {
       if (!args[1]) {
-        await message.reply("يرجى تحديد اسم الفئة.").catch(() => {});
+        await message.reply("⚠️ يرجى تحديد اسم الفئة.").catch(() => {});
         return;
       }
 
@@ -81,11 +80,11 @@ module.exports = {
       );
 
       if (filteredCommands.length === 0) {
-        await message.reply(`لم يتم العثور على أوامر في الفئة "${categoryName}".`).catch(() => {});
+        await message.reply(`❌ لم يتم العثور على أوامر في الفئة: "${categoryName}".`).catch(() => {});
         return;
       }
 
-      let msg = `╔══════════════╗\n🌐 أوامر ${categoryName.toUpperCase()} 🌐\n╚══════════════╝\n`;
+      let msg = `╔══════════════╗\n🌐 أوامر الفئة: ${categoryName.toUpperCase()} 🌐\n╚══════════════╝\n`;
       filteredCommands.forEach((cmd) => {
         msg += `\n🪻 ${cmd.config.name}\n`;
       });
@@ -100,7 +99,7 @@ module.exports = {
     const command = commands.get(commandName) || commands.get(resolvedName);
 
     if (!command) {
-      await message.reply(`الأمر "${commandName}" غير موجود. اكتب ${prefix}help لعرض كل الأوامر المتاحة.`).catch(() => {});
+      await message.reply(`❌ الأمر "${commandName}" غير موجود.\n✦ اكتب ${prefix}Kabos لعرض كل الأوامر المتاحة.`).catch(() => {});
       return;
     }
 
@@ -119,17 +118,17 @@ module.exports = {
       "╭── الاسم ────⭓",
       `│ ${configCommand.name || ""}`,
       "├── معلومات",
-      `│ الوصف: ${longDescription}`,
-      `│ أسماء أخرى: ${configCommand.aliases ? configCommand.aliases.join(", ") : "لا توجد"}`,
-      `│ الإصدار: ${configCommand.version || "1.0"}`,
-      `│ الصلاحية: ${roleText}`,
-      `│ زمن تنفيذ الأمر: ${configCommand.countDown || 1}s`,
-      `│ المؤلف: ${author}`,
+      `│ 📄 الوصف: ${longDescription}`,
+      `│ 🪄 أسماء أخرى: ${configCommand.aliases ? configCommand.aliases.join(", ") : "لا توجد"}`,
+      `│ 🌀 الإصدار: ${configCommand.version || "1.0"}`,
+      `│ 🎯 الصلاحية: ${roleText}`,
+      `│ ⏱ زمن التنفيذ: ${configCommand.countDown || 1} ثانية`,
+      `│ ✍️ المؤلف: ${author}`,
       "├── الاستخدام",
       `│ ${usage}`,
       "├── ملاحظات",
-      "│ المحتوى داخل <...> يمكن تغييره",
-      "│ المحتوى داخل [a|b|c] يعني a أو b أو c",
+      "│ ✦ المحتوى داخل <...> يمكن تغييره",
+      "│ ✦ المحتوى داخل [a|b|c] يعني a أو b أو c",
       "╰━━━━━━━❖"
     ].join("\n");
 
@@ -144,7 +143,7 @@ function roleTextToString(role) {
     case 1:
       return "1 (مشرفو المجموعة)";
     case 2:
-      return "2 (مشرف البوت)";
+      return "2 (مشرفو البوت)";
     default:
       return "صلاحية غير معروفة";
   }
