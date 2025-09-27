@@ -12,14 +12,14 @@ module.exports = {
     countDown: 5,
     role: 0,
     shortDescription: {
-      en: "View command usage",
+      en: "عرض طريقة استخدام الأوامر", // نص الواجهة (مُستبدل بالعربية)
     },
     longDescription: {
-      en: "View command usage and list all commands or commands by category",
+      en: "عرض طريقة استخدام الأوامر وقائمة جميع الأوامر أو الأوامر حسب الفئة", // نص الواجهة (مُستبدل بالعربية)
     },
     category: "info",
     guide: {
-      en: "{pn}help [cmdName]\n{pn}help -c <categoryName>",
+      en: "{pn}help [اسم_الأمر]\n{pn}help -c <اسم_الفئة>",
     },
     priority: 1,
   },
@@ -29,20 +29,20 @@ module.exports = {
     const threadData = await threadsData.get(threadID).catch(() => ({}));
     const prefix = getPrefix(threadID);
 
-    // No args: show list of commands grouped by category
+    // بدون وسائط: عرض قائمة الأوامر مجمّعة حسب الفئة
     if (!args || args.length === 0) {
       const categories = {};
       let msg = "";
 
       msg += "╔══════════════╗\n";
-      msg += "🛡 COMMAND LIST 🛡\n";
+      msg += "🛡 قائمة الأوامر 🛡\n";
       msg += "╚══════════════╝\n";
 
       for (const [name, value] of commands) {
-        // Respect role requirement
+        // احترم متطلبات الصلاحية
         if (value?.config?.role > 1 && role < value.config.role) continue;
 
-        const category = (value?.config?.category || "Uncategorized");
+        const category = (value?.config?.category || "غير مصنفة");
         categories[category] = categories[category] || { commands: [] };
         categories[category].commands.push(name);
       }
@@ -59,19 +59,19 @@ module.exports = {
       });
 
       const totalCommands = (typeof commands.size === "number") ? commands.size : Array.from(commands).length;
-      msg += `\nCurrently the bot has ${totalCommands} commands available.\n`;
-      msg += `Type ${prefix}help <commandName> to view details about a specific command.\n`;
-      msg += `Type ${prefix}help -c <categoryName> to view commands by category.\n`;
-      msg += `\nBot Name: ♡KABOS BOT♡\n`;
+      msg += `\nحالياً يحتوي البوت على ${totalCommands} أمرًا متاحًا.\n`;
+      msg += `اكتب ${prefix}help <اسم_الأمر> لعرض التفاصيل عن أمر محدد.\n`;
+      msg += `اكتب ${prefix}help -c <اسم_الفئة> لعرض الأوامر حسب الفئة.\n`;
+      msg += `\nاسم البوت: ♡KABOS BOT♡\n`;
 
       await message.reply({ body: msg }).catch(() => {});
       return;
     }
 
-    // Category listing: help -c <category>
+    // عرض حسب الفئة: help -c <category>
     if (args[0] === "-c") {
       if (!args[1]) {
-        await message.reply("Please specify a category name.").catch(() => {});
+        await message.reply("يرجى تحديد اسم الفئة.").catch(() => {});
         return;
       }
 
@@ -81,11 +81,11 @@ module.exports = {
       );
 
       if (filteredCommands.length === 0) {
-        await message.reply(`No commands found in the category "${categoryName}".`).catch(() => {});
+        await message.reply(`لم يتم العثور على أوامر في الفئة "${categoryName}".`).catch(() => {});
         return;
       }
 
-      let msg = `╔══════════════╗\n🌐 ${categoryName.toUpperCase()} COMMANDS 🌐\n╚══════════════╝\n`;
+      let msg = `╔══════════════╗\n🌐 أوامر ${categoryName.toUpperCase()} 🌐\n╚══════════════╝\n`;
       filteredCommands.forEach((cmd) => {
         msg += `\n🪻 ${cmd.config.name}\n`;
       });
@@ -94,42 +94,42 @@ module.exports = {
       return;
     }
 
-    // Specific command help: help <commandName>
+    // مساعدة لأمر محدد: help <commandName>
     const commandName = args[0].toLowerCase();
     const resolvedName = aliases.get(commandName) || commandName;
     const command = commands.get(commandName) || commands.get(resolvedName);
 
     if (!command) {
-      await message.reply(`Command "${commandName}" not found. Type ${prefix}help to see all available commands.`).catch(() => {});
+      await message.reply(`الأمر "${commandName}" غير موجود. اكتب ${prefix}help لعرض كل الأوامر المتاحة.`).catch(() => {});
       return;
     }
 
     const configCommand = command.config || {};
     const roleText = roleTextToString(configCommand.role);
-    const author = configCommand.author || "Unknown";
+    const author = configCommand.author || "غير معروف";
 
     const longDescription = configCommand.longDescription
-      ? (configCommand.longDescription.en || "No description")
-      : "No description";
+      ? (configCommand.longDescription.en || "لا يوجد وصف")
+      : "لا يوجد وصف";
 
-    const guideBody = configCommand.guide?.en || "No guide available.";
+    const guideBody = configCommand.guide?.en || "لا يوجد دليل متاح.";
     const usage = guideBody.replace(/{pn}|{p}/g, prefix).replace(/{n}/g, configCommand.name || "");
 
     const response = [
-      "╭── NAME ────⭓",
+      "╭── الاسم ────⭓",
       `│ ${configCommand.name || ""}`,
-      "├── INFO",
-      `│ Description: ${longDescription}`,
-      `│ Other names: ${configCommand.aliases ? configCommand.aliases.join(", ") : "Do not have"}`,
-      `│ Version: ${configCommand.version || "1.0"}`,
-      `│ Role: ${roleText}`,
-      `│ Time per command: ${configCommand.countDown || 1}s`,
-      `│ Author: ${author}`,
-      "├── Usage",
+      "├── معلومات",
+      `│ الوصف: ${longDescription}`,
+      `│ أسماء أخرى: ${configCommand.aliases ? configCommand.aliases.join(", ") : "لا توجد"}`,
+      `│ الإصدار: ${configCommand.version || "1.0"}`,
+      `│ الصلاحية: ${roleText}`,
+      `│ زمن تنفيذ الأمر: ${configCommand.countDown || 1}s`,
+      `│ المؤلف: ${author}`,
+      "├── الاستخدام",
       `│ ${usage}`,
-      "├── Notes",
-      "│ The content inside <...> can be changed",
-      "│ The content inside [a|b|c] means a or b or c",
+      "├── ملاحظات",
+      "│ المحتوى داخل <...> يمكن تغييره",
+      "│ المحتوى داخل [a|b|c] يعني a أو b أو c",
       "╰━━━━━━━❖"
     ].join("\n");
 
@@ -140,62 +140,12 @@ module.exports = {
 function roleTextToString(role) {
   switch (role) {
     case 0:
-      return "0 (All users)";
+      return "0 (كل المستخدمين)";
     case 1:
-      return "1 (Group administrators)";
+      return "1 (مشرفو المجموعة)";
     case 2:
-      return "2 (Admin bot)";
+      return "2 (مشرف البوت)";
     default:
-      return "Unknown role";
+      return "صلاحية غير معروفة";
   }
-    }      const commandName = args[0].toLowerCase();
-      const command = commands.get(commandName) || commands.get(aliases.get(commandName));
-
-      if (!command) {
-        await message.reply(`Command "${commandName}" not found.`);
-      } else {
-        const configCommand = command.config;
-        const roleText = roleTextToString(configCommand.role);
-        const author = configCommand.author || "Unknown";
-
-        const longDescription = configCommand.longDescription
-          ? configCommand.longDescription.en || "No description"
-          : "No description";
-
-        const guideBody = configCommand.guide?.en || "No guide available.";
-        const usage = guideBody.replace(/{p}/g, prefix).replace(/{n}/g, configCommand.name);
-
-        const response = `╭── NAME ────⭓\n` +
-          `│ ${configCommand.name}\n` +
-          `├── INFO\n` +
-          `│ Description: ${longDescription}\n` +
-          `│ Other names: ${configCommand.aliases ? configCommand.aliases.join(", ") : "Do not have"}\n` +
-          `│ Version: ${configCommand.version || "1.0"}\n` +
-          `│ Role: ${roleText}\n` +
-          `│ Time per command: ${configCommand.countDown || 1}s\n` +
-          `│ Author: ${author}\n` +
-          `├── Usage\n` +
-          `│ ${usage}\n` +
-          `├── Notes\n` +
-          `│ The content inside <ShAn> can be changed\n` +
-          `│ The content inside [a|b|c] is a or b or c\n` +
-          `╰━━━━━━━❖`;
-
-        await message.reply(response);
-      }
-    }
-  },
-};
-
-function roleTextToString(roleText) {
-  switch (roleText) {
-    case 0:
-      return "0 (All users)";
-    case 1:
-      return "1 (Group administrators)";
-    case 2:
-      return "2 (Admin bot)";
-    default:
-      return "Unknown role";
-  }
-    }
+}
